@@ -10,12 +10,66 @@ const FILTERS = ["All", "Identity", "Product", "Digital", "Motion"] as const;
 type Filter = (typeof FILTERS)[number];
 
 const PROJECTS = [
-  { title: "Kōbo Rebrand", client: "Kōbo Ceramics", year: "2025", discipline: "Identity", result: "+38% direct sales in one quarter", tint: "from-lime-300/25 to-emerald-500/5" },
-  { title: "Orbit OS", client: "Orbit", year: "2024", discipline: "Product", result: "Design system adopted by 6 squads", tint: "from-sky-400/25 to-indigo-500/5" },
-  { title: "Fieldnote", client: "Fieldnote Collective", year: "2024", discipline: "Digital", result: "12k subscribers in 4 months", tint: "from-amber-300/25 to-orange-500/5" },
-  { title: "Monolith", client: "Channel Nine", year: "2023", discipline: "Motion", result: "Title sequence, 3M views", tint: "from-fuchsia-400/25 to-purple-600/5" },
-  { title: "Verso Type", client: "Verso", year: "2023", discipline: "Identity", result: "A bespoke editorial typeface", tint: "from-teal-300/25 to-cyan-500/5" },
-  { title: "Northwind", client: "Northwind", year: "2022", discipline: "Product", result: "Onboarding completion +21%", tint: "from-rose-300/25 to-red-500/5" },
+  {
+    title: "Kōbo Rebrand",
+    client: "Kōbo Ceramics",
+    year: "2025",
+    discipline: "Identity",
+    result: "+38% direct sales in one quarter",
+    tint: "from-lime-300/40 to-emerald-500/10",
+    image: "https://picsum.photos/seed/atelier-kobo/1200/750",
+    alt: "Kōbo Ceramics rebrand — hand-thrown vessels beside printed identity cards",
+  },
+  {
+    title: "Orbit OS",
+    client: "Orbit",
+    year: "2024",
+    discipline: "Product",
+    result: "Design system adopted by 6 squads",
+    tint: "from-sky-400/40 to-indigo-500/10",
+    image: "https://picsum.photos/seed/atelier-orbit/1200/750",
+    alt: "Orbit OS — product interface screens arranged across a workspace",
+  },
+  {
+    title: "Fieldnote",
+    client: "Fieldnote Collective",
+    year: "2024",
+    discipline: "Digital",
+    result: "12k subscribers in 4 months",
+    tint: "from-amber-300/40 to-orange-500/10",
+    image: "https://picsum.photos/seed/atelier-fieldnote/1200/750",
+    alt: "Fieldnote — an editorial publication spread out on a table",
+  },
+  {
+    title: "Monolith",
+    client: "Channel Nine",
+    year: "2023",
+    discipline: "Motion",
+    result: "Title sequence, 3M views",
+    tint: "from-fuchsia-400/40 to-purple-600/10",
+    image: "https://picsum.photos/seed/atelier-monolith/1200/750",
+    alt: "Monolith — a still frame from a title sequence, lit in deep shadow",
+  },
+  {
+    title: "Verso Type",
+    client: "Verso",
+    year: "2023",
+    discipline: "Identity",
+    result: "A bespoke editorial typeface",
+    tint: "from-teal-300/40 to-cyan-500/10",
+    image: "https://picsum.photos/seed/atelier-verso/1200/750",
+    alt: "Verso Type — type specimens and proof sheets of a custom typeface",
+  },
+  {
+    title: "Northwind",
+    client: "Northwind",
+    year: "2022",
+    discipline: "Product",
+    result: "Onboarding completion +21%",
+    tint: "from-rose-300/40 to-red-500/10",
+    image: "https://picsum.photos/seed/atelier-northwind/1200/750",
+    alt: "Northwind — a product dashboard displayed on a laptop",
+  },
 ] as const;
 
 export default function WorksPage() {
@@ -62,16 +116,24 @@ export default function WorksPage() {
                 transition={{ duration: 0.35 }}
                 className="group overflow-hidden rounded-2xl border border-border"
               >
-                <div
-                  className={cn(
-                    "relative flex aspect-[16/10] items-end bg-gradient-to-br p-6",
-                    p.tint,
-                  )}
-                >
-                  <span className="absolute top-6 right-6 font-mono text-sm text-foreground/60">
+                <div className="relative flex aspect-[16/10] items-end overflow-hidden p-6">
+                  <img
+                    src={p.image}
+                    alt={p.alt}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover grayscale transition-all duration-700 ease-out group-hover:scale-[1.04] group-hover:grayscale-0"
+                  />
+                  <div
+                    className={cn(
+                      "absolute inset-0 bg-gradient-to-br transition-opacity duration-700 group-hover:opacity-0",
+                      p.tint,
+                    )}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  <span className="absolute top-6 right-6 z-10 font-mono text-sm text-white/70">
                     {p.year}
                   </span>
-                  <span className="text-xs uppercase tracking-[0.25em] text-foreground/70">
+                  <span className="relative z-10 text-xs uppercase tracking-[0.25em] text-white/80">
                     {p.discipline}
                   </span>
                 </div>

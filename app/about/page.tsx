@@ -16,10 +16,10 @@ const CAPABILITIES = [
 ];
 
 const TEAM = [
-  { name: "Mara Ilves", role: "Founder, Creative Director" },
-  { name: "Devan Rao", role: "Design Lead" },
-  { name: "Noor Haddad", role: "Motion Director" },
-  { name: "Tomasz Wójcik", role: "Engineering Lead" },
+  { name: "Mara Ilves", role: "Founder, Creative Director", image: "https://picsum.photos/seed/atelier-mara/800/800" },
+  { name: "Devan Rao", role: "Design Lead", image: "https://picsum.photos/seed/atelier-devan/800/800" },
+  { name: "Noor Haddad", role: "Motion Director", image: "https://picsum.photos/seed/atelier-noor/800/800" },
+  { name: "Tomasz Wójcik", role: "Engineering Lead", image: "https://picsum.photos/seed/atelier-tomasz/800/800" },
 ];
 
 const AWARDS = [
@@ -95,7 +95,14 @@ export default function AboutPage() {
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="rounded-2xl border border-border p-6"
               >
-                <div className="mb-6 aspect-square rounded-xl bg-gradient-to-br from-primary/20 to-transparent" />
+                <div className="mb-6 aspect-square overflow-hidden rounded-xl">
+                  <img
+                    src={m.image}
+                    alt={`Portrait of ${m.name}`}
+                    loading="lazy"
+                    className="h-full w-full object-cover grayscale transition-all duration-700 ease-out hover:grayscale-0"
+                  />
+                </div>
                 <h3 className="text-lg font-medium tracking-tight">{m.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{m.role}</p>
               </motion.div>

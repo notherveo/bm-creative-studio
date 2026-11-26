@@ -88,6 +88,16 @@ export default function ServicesPage() {
           ))}
         </div>
 
+        {/* Craft image */}
+        <section className="mt-24 overflow-hidden rounded-2xl">
+          <img
+            src="https://picsum.photos/seed/atelier-craft/2000/1000"
+            alt="A studio desk covered in type specimens, print proofs and colour swatches"
+            loading="lazy"
+            className="h-[42vh] w-full object-cover grayscale"
+          />
+        </section>
+
         {/* Process */}
         <section className="mt-28 border-t border-border pt-12">
           <h2 className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-foreground">

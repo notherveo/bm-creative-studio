@@ -107,6 +107,15 @@ export default function ContactPage() {
             )}
           </form>
         </div>
+
+        <div className="mt-20 overflow-hidden rounded-2xl">
+          <img
+            src="https://picsum.photos/seed/atelier-studio/2000/900"
+            alt="The Atelier Noir studio — desks, screens and pinned-up work"
+            loading="lazy"
+            className="h-[38vh] w-full object-cover grayscale"
+          />
+        </div>
       </div>
     </div>
   );

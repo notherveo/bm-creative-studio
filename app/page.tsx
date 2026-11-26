@@ -17,28 +17,36 @@ const WORK = [
     year: "2025",
     discipline: "Identity",
     blurb: "A quiet identity for a loud ceramics label, built around a single mark.",
-    tint: "from-lime-300/30 to-emerald-500/10",
+    tint: "from-lime-300/40 to-emerald-500/10",
+    image: "https://picsum.photos/seed/atelier-kobo/1200/900",
+    alt: "Kōbo Ceramics rebrand — hand-thrown vessels beside printed identity cards",
   },
   {
     title: "Orbit OS",
     year: "2024",
     discipline: "Product",
     blurb: "Design system and marketing site for a scheduling platform.",
-    tint: "from-sky-400/30 to-indigo-500/10",
+    tint: "from-sky-400/40 to-indigo-500/10",
+    image: "https://picsum.photos/seed/atelier-orbit/1200/900",
+    alt: "Orbit OS — product interface screens arranged across a workspace",
   },
   {
     title: "Fieldnote",
     year: "2024",
     discipline: "Digital",
     blurb: "An editorial site for a field-research collective.",
-    tint: "from-amber-300/30 to-orange-500/10",
+    tint: "from-amber-300/40 to-orange-500/10",
+    image: "https://picsum.photos/seed/atelier-fieldnote/1200/900",
+    alt: "Fieldnote — an editorial publication spread out on a table",
   },
   {
     title: "Monolith",
     year: "2023",
     discipline: "Motion",
     blurb: "Title sequence and motion language for a documentary series.",
-    tint: "from-fuchsia-400/30 to-purple-600/10",
+    tint: "from-fuchsia-400/40 to-purple-600/10",
+    image: "https://picsum.photos/seed/atelier-monolith/1200/900",
+    alt: "Monolith — a still frame from a title sequence, lit in deep shadow",
   },
 ];
 
@@ -123,19 +131,27 @@ export default function HomePage() {
               href="/works"
               className="group min-w-[82vw] snap-start sm:min-w-[420px]"
             >
-              <div
-                className={`relative flex aspect-[4/3] items-end overflow-hidden rounded-2xl border border-border bg-gradient-to-br ${w.tint} p-6 transition-transform duration-500 group-hover:scale-[0.99]`}
-              >
-                <span className="absolute top-6 right-6 font-mono text-sm text-foreground/60">
+              <div className="relative flex aspect-[4/3] items-end overflow-hidden rounded-2xl border border-border p-6 transition-transform duration-500 group-hover:scale-[0.99]">
+                <img
+                  src={w.image}
+                  alt={w.alt}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover grayscale transition-all duration-700 ease-out group-hover:scale-[1.04] group-hover:grayscale-0"
+                />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${w.tint} transition-opacity duration-700 group-hover:opacity-0`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <span className="absolute top-6 right-6 z-10 font-mono text-sm text-white/70">
                   0{i + 1}
                 </span>
-                <div>
-                  <span className="text-xs uppercase tracking-[0.25em] text-foreground/70">
+                <div className="relative z-10">
+                  <span className="text-xs uppercase tracking-[0.25em] text-white/80">
                     {w.discipline}
                   </span>
                   <h3 className="mt-2 text-3xl font-semibold tracking-tight">{w.title}</h3>
                 </div>
-                <ArrowDownRight className="absolute right-6 bottom-6 size-6 -translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" />
+                <ArrowDownRight className="absolute right-6 bottom-6 z-10 size-6 -translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100" />
               </div>
               <p className="mt-4 max-w-sm text-sm text-muted-foreground">{w.blurb}</p>
             </Link>
